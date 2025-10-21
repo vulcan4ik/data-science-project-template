@@ -1,0 +1,34 @@
+services:
+  jupyter:
+    build: ./docker/jupyter/
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    command: start-notebook.py --NotebookApp.token='my-token'
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  postgres:
+    build: ./docker/postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: mydb
+    networks:
+      - app-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    name: postgres_data
+
+networks:
+  app-network:
+    driver: bridge
