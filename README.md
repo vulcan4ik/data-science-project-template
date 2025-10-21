@@ -49,6 +49,8 @@ Find an `examples.ipynb` notebook in ipynb folder. Create your own notebooks.
 
 Copy your data into `./data` and read it in Jupyter. You can also upload data into PostgreSQL, which is running in its own container along with Jupyter (see examples notebook for details).
 
+Всё, что вы создаёте в Jupyter внутри папки /home/jovyan/work, автоматически сохраняется на вашем компьютере в папке проекта.
+
 ### 7. Stop containers
 
 ```
