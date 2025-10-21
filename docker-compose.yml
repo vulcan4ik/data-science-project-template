@@ -5,7 +5,7 @@ services:
       - "8888:8888"
     volumes:
       - .:/home/jovyan/work
-    command: start-notebook.py --NotebookApp.token='my-token'
+    command: start-notebook.py --ServerApp.token='' --ServerApp.password=''
     depends_on:
       - postgres
     networks:
