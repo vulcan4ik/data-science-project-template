@@ -20,3 +20,5 @@ Thumbs.db
 # Other #
 #####################
 lib/__pycache__/
+codeium-jupyter/
+.virtual_documents/
